@@ -23,13 +23,17 @@ jobs:
         run: |
           wget https://elasticbeanstalk-us-east-1-734046833946.s3.amazonaws.com/gha_add_rows_ti.py
           chmod +x gha_add_rows_ti.py
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '8'
+          distribution: 'temurin' 
+      - name: Install C dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y libcppunit-dev libsasl2-dev
       - name: Install dependencies
         run: |
           pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib gspread
-      # - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1.2'
       - name: Run shell script to save current time
         run: |
           #!/bin/bash
@@ -47,8 +51,7 @@ jobs:
           echo "Current time has been saved to $filename"
       - name: Test UTs
         run: |
-          bundle install
-          make test
+          mvn test -DskipITs -Dmaven.test.failure.ignore=true -DfailIfNoTests=false
       - name: Upload Duration
         run: |
           python gha_add_rows_ti.py
