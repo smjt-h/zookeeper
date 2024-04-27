@@ -10,7 +10,7 @@ For the latest information about Apache ZooKeeper, please visit our website at:
 
    https://zookeeper.apache.org
 
-and our wiki,  at:
+and our wiki,at:
 
    https://cwiki.apache.org/confluence/display/ZOOKEEPER
 
