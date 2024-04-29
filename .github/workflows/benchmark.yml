@@ -51,6 +51,7 @@ jobs:
           echo "Current time has been saved to $filename"
       - name: Test UTs
         run: |
+          cd upstream
           mvn test -DskipITs -Dmaven.test.failure.ignore=true -DfailIfNoTests=false
       - name: Upload Duration
         run: |
