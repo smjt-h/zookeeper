@@ -13,16 +13,14 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9 
       - name: Download Script
         run: |
-          wget https://elasticbeanstalk-us-east-1-734046833946.s3.amazonaws.com/gha-add-rows.py
-          chmod +x gha-add-rows.py
+          wget https://elasticbeanstalk-us-east-1-734046833946.s3.amazonaws.com/gha_add_rows_ti.py
+          chmod +x gha_add_rows_ti.py
       - uses: actions/setup-java@v4
         with:
           java-version: '8'
@@ -51,11 +49,10 @@ jobs:
           echo "Current time has been saved to $filename"
       - name: Test UTs
         run: |
-          cd upstream
           mvn test -DskipITs -Dmaven.test.failure.ignore=true -DfailIfNoTests=false
       - name: Upload Duration
         run: |
-          python gha-add-rows.py
+          python gha_add_rows_ti.py
         env:
           BASE64_GCP_KEY: ${{ secrets.BASE64_GCP_KEY }}
           WORKSHEET_INDEX: "2"
