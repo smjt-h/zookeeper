@@ -1229,4 +1229,15 @@
     </plugins>
   </reporting>
 
+  <repositories>
+    <repository>
+      <id>custom-s3</id>
+      <url>https://storage.googleapis.com/your-bucket</url>
+    </repository>
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+
 </project>
