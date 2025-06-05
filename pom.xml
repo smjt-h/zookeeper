@@ -1232,7 +1232,7 @@
   <repositories>
     <repository>
       <id>custom-s3</id>
-      <url>https://storage.googleapis.com/your-bucket</url>
+      <url>https://storage.googleapis.com/your-bucket-name/maven-cache</url>
     </repository>
     <repository>
       <id>central</id>
