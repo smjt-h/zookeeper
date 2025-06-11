@@ -1229,4 +1229,15 @@
     </plugins>
   </reporting>
 
+  <repositories>
+    <repository>
+      <id>custom-s3</id>
+      <url>https://pkg.harness.io/pkg/9UuUfLwaQ-6ZowvbG7qtLQ/testmvncache2/maven</url>
+    </repository>
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+
 </project>
