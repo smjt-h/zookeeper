@@ -31,6 +31,7 @@ public class BlockingQueueWatcher implements Watcher {
 
     @Override
     public void process(WatchedEvent event) {
+        
         assertTrue(events.add(event));
     }
 
